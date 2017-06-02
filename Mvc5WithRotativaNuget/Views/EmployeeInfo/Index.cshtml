@@ -1,0 +1,48 @@
+﻿@model System.Collections.Generic.List<Mvc5WithRotativaNuget.Models.EmployeeInfo>
+
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Print all employees", "PrintAllEmployees")
+</p>
+<table class="table">
+    <tr>
+        <th>Employee name</th>
+        <th>Salary</th>
+        <th>Department</th>
+        <th>Designation</th>
+        <th>Net Salary</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetSalary)
+            </td>
+            <td>
+                @Html.ActionLink("Print Salary Slip", "PrintEmployeeById", new { id = item.EmpNo })
+
+            </td>
+        </tr>
+    }
+
+</table>
